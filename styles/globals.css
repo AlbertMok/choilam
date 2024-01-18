@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animate-page-in-1 {
+  @apply animate-page-in;
+  animation-delay: calc(1 * 130ms);
+}
+
+.animate-page-in-2 {
+  @apply animate-page-in;
+  animation-delay: calc(2 * 130ms);
+}
+
+.animate-page-in-3 {
+  @apply animate-page-in;
+  animation-delay: calc(3 * 130ms);
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat 0 0;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+
+.heart-full {
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat -2800px;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+
+.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+.prose :is(h2, h3, h4) {
+  @apply scroll-m-10 !font-sans text-primary-11;
+}
+
+.prose .anchor {
+  @apply invisible absolute -ml-4 no-underline sm:ml-[-1em];
+
+  padding-right: 0.5em;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-primary-9;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply dark border border-neutral-6 bg-neutral-2 p-0 py-2 lg:py-4;
+}
+
+.prose code {
+  @apply mx-0.5 rounded-md bg-neutral-4 px-2 py-1 text-accent-11 before:content-[''] after:content-[''];
+}
+
+.prose pre code {
+  @apply text-neutral-12;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.prose .tweet a {
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+[data-rehype-pretty-code-fragment] pre > code {
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-xs text-neutral-12 sm:text-sm lg:text-base;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+[data-rehype-pretty-code-fragment] pre > code > .line {
+  @apply py-1 px-2 lg:px-6;
+}
+[data-line-numbers] .line {
+  @apply px-4;
+}
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: gray;
+}
+[data-rehype-pretty-code-fragment] .line.highlighted {
+  @apply border-l-2 border-neutral-9 bg-neutral-5;
+}
+[data-rehype-pretty-code-fragment] .word {
+  @apply rounded-md bg-neutral-5 p-1;
+}
+[data-rehype-pretty-code-title] {
+  @apply dark rounded-t-lg border border-neutral-6 bg-neutral-1 px-4 py-3 font-mono text-xs font-medium text-neutral-12 lg:text-sm;
+}
+[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none border-t-0;
+}
