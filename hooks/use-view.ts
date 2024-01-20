@@ -6,6 +6,11 @@ const viewsScheme = z.object({
   views: z.number(),
 });
 
+/**
+ * get the post views count
+ * @param slug 
+ * @returns 
+ */
 export function usePostViews(slug: string) {
   const { data } = useQuery({
     queryKey: ["views", slug],
@@ -19,6 +24,10 @@ export function usePostViews(slug: string) {
   return { data };
 }
 
+/**
+ * mutate the views count of the post
+ * @returns 
+ */
 export function useMutatePostView() {
   const queryClient = useQueryClient();
 

@@ -39,7 +39,7 @@ export function PostCard({
           <EyeIcon className="h-4 w-4" />
           <div>
             {/* 浏览次数 */}
-            <ViewsNumberContainer slug={slug} /> 次浏览
+            {/* <ViewsNumberContainer slug={slug} /> 次浏览 */}
           </div>
         </div>
       </div>

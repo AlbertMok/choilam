@@ -14,6 +14,8 @@ const PostItem = ({ post }: { post: Post }) => {
 };
 
 export async function HottestPostSection({ className }: { className?: string }) {
+
+  // 去数据库查找文章
   const hotPosts = await db.post.findMany({
     orderBy: {
       views: "desc",

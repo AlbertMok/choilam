@@ -5,7 +5,8 @@ import { useMounted } from "@/hooks/use-mounted";
 import { LoadingDots } from "@/components/LoadingDots";
 import { Suspense } from "react";
 
-export const ViewsNumber = ({ slug }: { slug: string }) => {
+const ViewsNumber = ({ slug }: { slug: string }) => {
+  // get the views data of the post by post slug
   const { data } = usePostViews(slug);
   return <>{data?.views}</>;
 };
