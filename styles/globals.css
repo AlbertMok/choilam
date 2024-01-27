@@ -20,15 +20,13 @@
 .heart {
   width: 100px;
   height: 100px;
-  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
-    no-repeat 0 0;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat 0 0;
   transition: background-position 1s steps(28);
   transition-duration: 0s;
 }
 
 .heart-full {
-  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
-    no-repeat -2800px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat -2800px;
   transition: background-position 1s steps(28);
   transition-duration: 0s;
 }
@@ -58,7 +56,7 @@
   content: "#";
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -79,7 +77,7 @@
   @apply m-0;
 }
 
-.prose > :first-child {
+.prose> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -90,8 +88,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
@@ -114,22 +114,25 @@ table {
   white-space: nowrap;
 }
 
-.prose .callout > p {
+.prose .callout>p {
   margin: 0 !important;
 }
 
-[data-rehype-pretty-code-fragment] pre > code {
+[data-rehype-pretty-code-fragment] pre>code {
   @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-xs text-neutral-12 sm:text-sm lg:text-base;
   counter-reset: line;
   box-decoration-break: clone;
 }
-[data-rehype-pretty-code-fragment] pre > code > .line {
+
+[data-rehype-pretty-code-fragment] pre>code>.line {
   @apply py-1 px-2 lg:px-6;
 }
+
 [data-line-numbers] .line {
   @apply px-4;
 }
-[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+
+[data-rehype-pretty-code-fragment] [data-line-numbers]>.line::before {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
@@ -138,15 +141,19 @@ table {
   text-align: right;
   color: gray;
 }
+
 [data-rehype-pretty-code-fragment] .line.highlighted {
   @apply border-l-2 border-neutral-9 bg-neutral-5;
 }
+
 [data-rehype-pretty-code-fragment] .word {
   @apply rounded-md bg-neutral-5 p-1;
 }
+
 [data-rehype-pretty-code-title] {
   @apply dark rounded-t-lg border border-neutral-6 bg-neutral-1 px-4 py-3 font-mono text-xs font-medium text-neutral-12 lg:text-sm;
 }
-[data-rehype-pretty-code-title] + pre {
+
+[data-rehype-pretty-code-title]+pre {
   @apply mt-0 rounded-t-none border-t-0;
 }

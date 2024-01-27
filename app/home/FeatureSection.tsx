@@ -5,6 +5,7 @@ import { formatDay } from "@/lib/utils";
 
 export const FeatureSection = ({ className }: { className?: string }) => {
   // 暂时用所有文章作为代替
+  // featuredPost存放的是slug
   const featuredPosts = featuredPost.map((slug) => {
     const post = allPosts.find((post) => post.slug === slug);
     if (!post) {

@@ -13,12 +13,21 @@ import {
   BreadcrumbSeparator,
 } from "@/ui/components/Breadcrumb";
 
+/**
+ * generate static params of the page
+ * @returns 
+ */
 export function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
+/**
+ * generate the page's meta info
+ * @param param0 
+ * @returns 
+ */
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post.slug === params.slug);
 
@@ -68,6 +77,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
       <UpdateViewContainer slug={params.slug} />
       <div className="relative flex justify-center xl:justify-between">
+        {/* render mdx  */}
         <Mdx code={post.body.code} />
         <div className="mt-10 hidden xl:block">
           <div className="sticky top-32 w-56">

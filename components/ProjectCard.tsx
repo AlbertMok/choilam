@@ -2,19 +2,22 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { Badge } from "@/ui/components/Badge";
 
+interface ProjectInfo {
+  image: StaticImageData;
+  title: string;
+  description: string;
+  link: string;
+  tags: string[];
+}
+
+
 export function ProjectCard({
   image,
   title,
   description,
   link,
   tags,
-}: {
-  image: StaticImageData;
-  title: string;
-  description: string;
-  link: string;
-  tags: string[];
-}) {
+}: ProjectInfo) {
   return (
     <div className="flex h-fit w-fit flex-col space-y-4">
       <a

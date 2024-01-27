@@ -1,14 +1,21 @@
 import { cn } from "@/lib/utils";
 
+interface HeadBriefInfo {
+  title: string;
+  description: string;
+  className?: string;
+}
+
+/**
+ * head of page contains some brief info
+ * @param param0 
+ * @returns 
+ */
 export function HeadSection({
   title,
   description,
   className,
-}: {
-  title: string;
-  description: string;
-  className?: string;
-}) {
+}: HeadBriefInfo) {
   return (
     <section
       className={cn(

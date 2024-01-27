@@ -3,6 +3,13 @@ import Link from "next/link";
 import { ViewsNumberContainer } from "@/components/ViewsNumber";
 import { cn } from "@/lib/utils";
 
+interface PostCard {
+  title: string; // post's title
+  summary: string; // post's summary
+  date: string; // post date 
+  slug: string; // post slug
+  className?: string; // postcard class name
+}
 /**
  * 文章卡片
  * @param param0
@@ -14,13 +21,7 @@ export function PostCard({
   date,
   slug,
   className,
-}: {
-  title: string;
-  summary: string;
-  date: string;
-  slug: string;
-  className?: string;
-}) {
+}: PostCard) {
   return (
     <Link
       className={cn(
