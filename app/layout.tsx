@@ -2,14 +2,10 @@ import "@/styles/globals.css";
 import "lxgw-wenkai-lite-webfont/style.css";
 import "core-js/features/array/at";
 import { Noto_Sans_SC } from "next/font/google";
-import QueryProvider, {
-  ReactQueryDevtools,
-} from "@/components/Provider/QueryProvider";
+import QueryProvider, { ReactQueryDevtools } from "@/components/Provider/QueryProvider";
 import type { Metadata } from "next";
 import ThemeProvider from "@/components/Provider/ThemeProvider";
-import JotaiProvider, {
-  JotaiDevTools,
-} from "@/components/Provider/JotaiProvider";
+import JotaiProvider, { JotaiDevTools } from "@/components/Provider/JotaiProvider";
 import { Header } from "@/app/Header";
 import { navbarStore } from "@/ui/components/Navbar";
 import { Footer } from "@/app/Footer";
@@ -57,11 +53,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   let JotaiDevToolsComponent: React.ReactNode = null;
   if (process.env.NODE_ENV === "development") {
     JotaiDevToolsComponent = <JotaiDevTools store={navbarStore} />; // put your debug store here, or remove store prop to debug global store
@@ -69,11 +61,7 @@ export default function RootLayout({
 
   return (
     // https://github.com/pacocoursey/next-themes/issues/152#issuecomment-1364280564
-    <html
-      lang="zh"
-      className={`${notoSansSC.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang="zh" className={`${notoSansSC.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="container mx-auto flex min-h-screen flex-col bg-neutral-2 px-4 text-neutral-12 selection:bg-primary-9 selection:text-white dark:bg-neutral-1 sm:px-12 lg:px-24 2xl:max-w-screen-xl">
         <ThemeProvider attribute="class" enableSystem={false}>
           <QueryProvider>
@@ -84,10 +72,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer className="mt-8" />
             </JotaiProvider>
-            <ReactQueryDevtools
-              initialIsOpen={false}
-              position={"bottom-right"}
-            />
+            <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
           </QueryProvider>
         </ThemeProvider>
         <Analytics />

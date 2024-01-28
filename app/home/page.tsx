@@ -1,6 +1,7 @@
 import { FeatureSection } from "@/app/home/FeatureSection";
 import { IntroSection } from "@/app/home/IntroSection";
 import { SkillSection } from "@/app/home/SkillSection";
+import { NotionAPI } from "notion-client";
 
 export function generateMetadata() {
   return {

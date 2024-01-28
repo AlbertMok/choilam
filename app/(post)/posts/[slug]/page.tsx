@@ -14,7 +14,7 @@ import {
 } from "@/ui/components/Breadcrumb";
 
 /**
- * generate static params of the page
+ * generate static params of the page , such as get the slug
  * @returns 
  */
 export function generateStaticParams() {
@@ -77,8 +77,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
       <UpdateViewContainer slug={params.slug} />
       <div className="relative flex justify-center xl:justify-between">
-        {/* render mdx  */}
+        {/* render mdx content */}
         <Mdx code={post.body.code} />
+
+        {/* the toc of the content */}
         <div className="mt-10 hidden xl:block">
           <div className="sticky top-32 w-56">
             <Toc toc={toc} slug={params.slug} />

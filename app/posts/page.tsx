@@ -1,6 +1,7 @@
 import { allPosts } from "contentlayer/generated";
 import dayjs from "dayjs";
 import { PostListSection } from "@/components/PostListSection";
+import { useEffect } from "react";
 
 export function generateMetadata() {
   return {
